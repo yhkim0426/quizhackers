@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141026811DCB67B7000DE924 /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 141026801DCB67B7000DE924 /* DataCenter.m */; };
 		7BA79EED1DCB622A00CEAE18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EEC1DCB622A00CEAE18 /* main.m */; };
 		7BA79EF01DCB622A00CEAE18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EEF1DCB622A00CEAE18 /* AppDelegate.m */; };
 		7BA79EF31DCB622A00CEAE18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EF21DCB622A00CEAE18 /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1410267F1DCB67B7000DE924 /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
+		141026801DCB67B7000DE924 /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
+		141026821DCB67C9000DE924 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7BA79EE81DCB622A00CEAE18 /* 1vs100QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1vs100QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA79EEC1DCB622A00CEAE18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7BA79EEE1DCB622A00CEAE18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +67,9 @@
 				7BA79EF11DCB622A00CEAE18 /* ViewController.h */,
 				7BA79EF21DCB622A00CEAE18 /* ViewController.m */,
 				7BA79EF41DCB622B00CEAE18 /* Main.storyboard */,
+				1410267F1DCB67B7000DE924 /* DataCenter.h */,
+				141026821DCB67C9000DE924 /* PrefixHeader.pch */,
+				141026801DCB67B7000DE924 /* DataCenter.m */,
 				7BA79EF71DCB622B00CEAE18 /* Assets.xcassets */,
 				7BA79EF91DCB622B00CEAE18 /* LaunchScreen.storyboard */,
 				7BA79EFC1DCB622B00CEAE18 /* Info.plist */,
@@ -152,6 +159,7 @@
 			files = (
 				7BA79EF31DCB622A00CEAE18 /* ViewController.m in Sources */,
 				7BA79EF01DCB622A00CEAE18 /* AppDelegate.m in Sources */,
+				141026811DCB67B7000DE924 /* DataCenter.m in Sources */,
 				7BA79EED1DCB622A00CEAE18 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = 1vs100QuizGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "IOSStudent.-vs100QuizGame";
@@ -281,6 +291,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = 1vs100QuizGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "IOSStudent.-vs100QuizGame";
@@ -307,6 +319,7 @@
 				7BA79F011DCB622B00CEAE18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
