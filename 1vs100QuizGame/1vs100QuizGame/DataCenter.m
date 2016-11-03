@@ -369,7 +369,6 @@
     self.stageCount++;
 }
 
-
 -(void)setSelectedCategory:(NSInteger)categoryIndex{
 
 
