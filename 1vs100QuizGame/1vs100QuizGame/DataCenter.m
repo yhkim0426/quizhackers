@@ -97,9 +97,25 @@
         
         // quizData.plist 파일로 저장 
         [self saveQuizDataToPlist:self.quizData];
-        NSLog(@"inited");
     }
     return self;
+}
+
+// 필요한 메서드 -> input:tag, numberOfQuiz output:BOOL
+
+- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex {
+    NSInteger answer = [self.quizData[selectedQuizIndex][@"answer"] intValue];
+    if (tag == answer) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
+- (NSInteger)getNumberOfCategory {
+    
+    return 0;
 }
 
 - (void)saveQuizDataToPlist:(NSArray *)quizData {

@@ -19,6 +19,8 @@
 - (NSInteger)getStageCount;
 - (void)plusOneStageCount;
 
+- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex;
+
 // - (NSArray *)getQuizData;
 
 
