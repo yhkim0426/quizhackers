@@ -155,8 +155,7 @@
     return self;
 }
 
-// 필요한 메서드 -> input:tag, numberOfQuiz output:BOOL
-
+/// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
     NSInteger answer = -1;
     for (NSDictionary *solution in self.quizData) {
