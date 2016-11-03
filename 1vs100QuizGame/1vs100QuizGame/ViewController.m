@@ -11,7 +11,13 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *baseTimerBar;
 @property (weak, nonatomic) IBOutlet UIView *acitvityTimerBar;
+@property (weak, nonatomic) IBOutlet UILabel *textQuizLabel;
+@property (weak, nonatomic) IBOutlet UILabel *imageQuizLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageQuizImageView;
 @property NSInteger stageCount;
+@property (weak, nonatomic) IBOutlet UIButton *option1Button;
+@property (weak, nonatomic) IBOutlet UIButton *option2Button;
+@property (weak, nonatomic) IBOutlet UIButton *option3Button;
 @end
 
 @implementation ViewController
@@ -36,17 +42,48 @@
     
     for (NSDictionary *quiz in quizData) {
         
-        [quiz objectForKey:@"level"];
+       
+       NSNumber *outPutLevel = [quiz objectForKey:@"level"];
+        NSInteger level = [outPutLevel integerValue];
+        
+        if(stageCount==level){
+            
+            [stageQuizs addObject:quiz];
+          // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
+        }
         
     }
     
+    NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
+    NSLog(@"%@, %ld",[stageQuizs objectAtIndex:randomValue], randomValue);
     
+    NSDictionary *selectedQuiz = [stageQuizs objectAtIndex:randomValue];
     
+  NSString *imageURL = [selectedQuiz objectForKey:@"imageURL"];
     
+    if([imageURL isEqualToString:@""]){
     
+        self.imageQuizLabel.hidden = YES;
+        self.imageQuizImageView.hidden= YES;
+        self.textQuizLabel.text = [selectedQuiz objectForKey:@"problem"];
+        
     
+    }else{
     
+        self.textQuizLabel.hidden = YES;
+        self.imageQuizLabel.text = [selectedQuiz objectForKey:@"problem"];
+        self.imageQuizImageView.image = [UIImage imageNamed:[selectedQuiz objectForKey:@"imageURL"]];
+        
+
     
+    }
+        NSArray *optionArray = [selectedQuiz objectForKey:@"option"];
+    
+    NSLog(@"%@",[optionArray objectAtIndex:0]);
+   
+    self.option1Button.titleLabel.text =[optionArray objectAtIndex:0];
+    self.option2Button.titleLabel.text =[optionArray objectAtIndex:1];
+    self.option3Button.titleLabel.text =[optionArray objectAtIndex:2];
     
     
     
@@ -54,6 +91,7 @@
     
     
 }
+
 
 -(IBAction)touchInSideOptions:(id)sender{
 

@@ -21,10 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cX7-eU-sGo">
-                                <rect key="frame" x="23" y="153" width="336" height="216"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ml-dv-Q8D">
                                 <rect key="frame" x="23" y="100" width="260" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,6 +92,24 @@
                                 </segments>
                                 <color key="tintColor" red="0.42899470117690885" green="0.44275793541786868" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이미지문제와같이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub5-zs-5l6">
+                                <rect key="frame" x="41" y="190" width="280" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="텍스트문제만" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jg-IF-gsr">
+                                <rect key="frame" x="41" y="276" width="280" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cX7-eU-sGo">
+                                <rect key="frame" x="41" y="248" width="280" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -103,6 +117,12 @@
                     <connections>
                         <outlet property="acitvityTimerBar" destination="ZPb-L4-l56" id="C65-K1-s0b"/>
                         <outlet property="baseTimerBar" destination="8ml-dv-Q8D" id="BMo-J4-SIE"/>
+                        <outlet property="imageQuizImageView" destination="cX7-eU-sGo" id="eX7-2P-wtx"/>
+                        <outlet property="imageQuizLabel" destination="ub5-zs-5l6" id="mXt-0W-ynq"/>
+                        <outlet property="option1Button" destination="D6a-Kw-foN" id="TD2-N7-VjB"/>
+                        <outlet property="option2Button" destination="MJN-8g-8Li" id="Nol-ZN-1Kh"/>
+                        <outlet property="option3Button" destination="qV9-0z-LsT" id="OnL-ka-atD"/>
+                        <outlet property="textQuizLabel" destination="3jg-IF-gsr" id="ZVW-eM-dMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
