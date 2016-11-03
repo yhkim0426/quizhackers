@@ -62,21 +62,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-Kw-foN">
-                                <rect key="frame" x="207" y="443" width="33" height="30"/>
+                                <rect key="frame" x="168" y="443" width="142" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="옵션1"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJN-8g-8Li">
-                                <rect key="frame" x="206" y="485" width="35" height="30"/>
+                                <rect key="frame" x="168" y="485" width="142" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="옵션2"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-0z-LsT">
-                                <rect key="frame" x="206" y="524" width="36" height="30"/>
+                                <rect key="frame" x="168" y="524" width="142" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="옵션3"/>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FTr-Hr-4Aw">
+                            <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FTr-Hr-4Aw">
                                 <rect key="frame" x="16" y="42" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -117,6 +117,7 @@
                     <connections>
                         <outlet property="acitvityTimerBar" destination="ZPb-L4-l56" id="C65-K1-s0b"/>
                         <outlet property="baseTimerBar" destination="8ml-dv-Q8D" id="BMo-J4-SIE"/>
+                        <outlet property="currentLevelSegment" destination="FTr-Hr-4Aw" id="fRy-SC-Tjq"/>
                         <outlet property="imageQuizImageView" destination="cX7-eU-sGo" id="eX7-2P-wtx"/>
                         <outlet property="imageQuizLabel" destination="ub5-zs-5l6" id="mXt-0W-ynq"/>
                         <outlet property="option1Button" destination="D6a-Kw-foN" id="TD2-N7-VjB"/>

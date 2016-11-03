@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *option1Button;
 @property (weak, nonatomic) IBOutlet UIButton *option2Button;
 @property (weak, nonatomic) IBOutlet UIButton *option3Button;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *currentLevelSegment;
+@property NSInteger indexOfSelectedQuiz;
 @end
 
 @implementation ViewController
@@ -36,10 +38,15 @@
     
     NSInteger stageCount = [dataCenter getStageCount];
     
+    //segment Level Setting
+    
+    self.currentLevelSegment.selectedSegmentIndex =stageCount;
+    //sel.
     NSLog(@"stage ? %ld",stageCount);
     
     NSMutableArray *stageQuizs = [[NSMutableArray alloc]init];
     
+    NSInteger quizDataIndex;
     for (NSDictionary *quiz in quizData) {
         
        
@@ -47,11 +54,13 @@
         NSInteger level = [outPutLevel integerValue];
         
         if(stageCount==level){
+            self.indexOfSelectedQuiz=quizDataIndex;
             
             [stageQuizs addObject:quiz];
           // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
         }
         
+        quizDataIndex++;
     }
     
     NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
@@ -77,15 +86,16 @@
 
     
     }
+    
         NSArray *optionArray = [selectedQuiz objectForKey:@"option"];
     
-    NSLog(@"%@",[optionArray objectAtIndex:0]);
-   
-    self.option1Button.titleLabel.text =[optionArray objectAtIndex:0];
-    self.option2Button.titleLabel.text =[optionArray objectAtIndex:1];
-    self.option3Button.titleLabel.text =[optionArray objectAtIndex:2];
+    NSLog(@"%@",self.option1Button.titleLabel.text);
     
-    self.option1Button.titleLabel.text =@"1";
+    [self.option1Button setTitle:[optionArray objectAtIndex:0] forState:UIControlStateNormal];
+   [self.option2Button setTitle:[optionArray objectAtIndex:1] forState:UIControlStateNormal];
+   [self.option3Button setTitle:[optionArray objectAtIndex:2] forState:UIControlStateNormal];
+    
+     NSLog(@"%@",self.option1Button.titleLabel.text);
 }
 
 
@@ -97,7 +107,7 @@
     
         //DataCenter *dataCenter = [DataCenter share]
         
-        
+        //btn.tit
         
     
         
