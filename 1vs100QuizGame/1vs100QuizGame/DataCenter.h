@@ -10,4 +10,6 @@
 
 @interface DataCenter : NSObject
 
++ (id)sharedManager;
+
 @end
