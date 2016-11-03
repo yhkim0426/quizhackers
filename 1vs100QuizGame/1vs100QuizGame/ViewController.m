@@ -18,8 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-      
-        // Do any additional setup after loading the view, typically from a nib.
+
     self.tabBarController.tabBar.hidden = YES;
     
     self.baseTimerBar.layer.cornerRadius = 10.0f;
