@@ -12,7 +12,7 @@
 
 + (id)sharedManager;
 
-
+- (NSInteger)getStageCount;
 - (void)plusOneStageCount;
 - (NSArray *)getQuizData;
 

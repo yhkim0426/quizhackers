@@ -26,7 +26,24 @@
     
     DataCenter *dataCenter = [DataCenter sharedManager];
     
-    dataCenter.
+    NSArray *quizData = [dataCenter getQuizData];
+    
+    NSInteger stageCount = [dataCenter getStageCount];
+    
+    NSLog(@"stage ? %ld",stageCount);
+    
+    NSMutableArray *stageQuizs = [[NSMutableArray alloc]init];
+    
+    for (NSDictionary *quiz in quizData) {
+        
+        [quiz objectForKey:@"level"];
+        
+    }
+    
+    
+    
+    
+    
     
     
     
@@ -44,7 +61,7 @@
     
     if([btn isKindOfClass:[UIButton class]]){
     
-        DataCenter *dataCenter = [DataCenter share]
+        //DataCenter *dataCenter = [DataCenter share]
         
         
         

@@ -98,6 +98,11 @@
     return self;
 }
 
+- (NSInteger)getStageCount{
+
+    return  self.stageCount;
+    
+}
 - (void)plusOneStageCount {
     self.stageCount++;
 }
