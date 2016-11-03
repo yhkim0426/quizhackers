@@ -49,8 +49,6 @@
     
     
     
-    
-    
 }
 
 -(IBAction)touchInSideOptions:(id)sender{

@@ -13,11 +13,13 @@
 + (id)sharedManager;
 
 - (NSArray *)getQuizSolution;
+- (NSArray *)loadQuizDataFromPlist;
 
 - (void)resetStageCount;
 - (NSInteger)getStageCount;
 - (void)plusOneStageCount;
-- (NSArray *)getQuizData;
+
+// - (NSArray *)getQuizData;
 
 
 @end
