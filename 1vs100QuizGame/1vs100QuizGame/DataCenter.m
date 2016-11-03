@@ -104,8 +104,14 @@
 // 필요한 메서드 -> input:tag, numberOfQuiz output:BOOL
 
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex {
-    NSInteger answer = [self.quizData[selectedQuizIndex][@"answer"] intValue];
-    if (tag == answer) {
+    //NSInteger answer = [self.quizData[selectedQuizIndex][@"answer"] integerValue];
+    
+    NSDictionary *quiz = [self.quizData objectAtIndex:selectedQuizIndex];
+    NSNumber *answer = [quiz objectForKey:@"answer"];
+    NSInteger integerAnswer = [answer integerValue];
+
+    
+    if (tag == integerAnswer) {
         return YES;
     } else {
         return NO;
