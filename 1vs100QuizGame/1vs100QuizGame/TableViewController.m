@@ -8,7 +8,8 @@
 
 #import "TableViewController.h"
 #import "CustomNavigationBar.h"
-@interface TableViewController ()<UICustomNavigationBarDelegate>
+@interface TableViewController ()<UICustomNavigationBarDelegate,UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
 @end
 
@@ -25,6 +26,39 @@
     
 }
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+
+
+    return 1;
+
+
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+        
+    DataCenter *dataCenter = [DataCenter sharedManager];
+    
+    NSInteger categoryNumber= [dataCenter getNumberOfCategory];
+    
+    return categoryNumber;
+    
+
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    DataCenter *dataCenter = [DataCenter sharedManager];
+    
+        cell.textLabel.text = 
+
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

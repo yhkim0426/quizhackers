@@ -12,7 +12,7 @@
         <!--Table View Controller-->
         <scene sceneID="aFZ-ZG-WXh">
             <objects>
-                <viewController storyboardIdentifier="view0" id="8LX-pR-w4d" customClass="TableViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableViewController" id="8LX-pR-w4d" customClass="TableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ov-cd-upU"/>
                         <viewControllerLayoutGuide type="bottom" id="3t5-3H-W69"/>
@@ -24,6 +24,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-Lj-9pY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="o9p-ev-wbZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9p-ev-wbZ" id="sZT-be-zIj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,6 +44,9 @@
                             <constraint firstItem="3t5-3H-W69" firstAttribute="top" secondItem="BVR-Lj-9pY" secondAttribute="bottom" constant="64" id="yMe-Ms-zln"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="BVR-Lj-9pY" id="f4Y-mV-z6d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUp-90-qER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
