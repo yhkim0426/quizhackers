@@ -8,6 +8,22 @@
 
 #import "DataCenter.h"
 
+@interface DataCenter ()
+
+@end
+
 @implementation DataCenter
+
++ (id)sharedManager {
+    static DataCenter * dataCenter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dataCenter = [[self alloc] init];
+    });
+    
+    return dataCenter;
+}
+
+// - ()
 
 @end
