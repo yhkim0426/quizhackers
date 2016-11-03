@@ -162,7 +162,6 @@
 }
 
 /// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
-
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
     BOOL isCorrectAnswer;
     NSInteger answer = 0;
@@ -180,6 +179,16 @@
         isCorrectAnswer = NO;
     }
     return isCorrectAnswer;
+}
+
+- (NSArray *)getAllCategoryNames {
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *category in self.quizData) {
+        NSString *categoryName = [category objectForKey:@"category"];
+        [tempArray addObject:categoryName];
+    }
+    
+    return tempArray;
 }
 
 - (NSInteger)getNumberOfCategory {
