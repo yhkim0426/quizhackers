@@ -155,19 +155,8 @@
     return self;
 }
 
-// 필요한 메서드 -> input:tag, numberOfQuiz output:BOOL
+/// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
 
-/*
-- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
-    //NSInteger answer = [self.quizData[selectedQuizIndex][@"answer"] integerValue];
-    
-    NSDictionary *quiz = [self.quizData objectAtIndex:selectedQuizIndex];
-    NSNumber *answer = [quiz objectForKey:@"answer"];
-    NSInteger integerAnswer = [answer integerValue];
-
-  */
-   
-  
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
     BOOL isCorrectAnswer;
     NSInteger answer = 0;
