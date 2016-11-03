@@ -69,20 +69,21 @@
     for (NSDictionary*quiz in quizArray) {
         NSNumber *outPutLevel = [quiz objectForKey:@"level"];
         NSInteger level = [outPutLevel integerValue];
-
+        NSLog(@"%ld",level);
         if(stageCount == level){
             self.selectedCategoryName = [quizs objectForKey:@"category"];
-            NSLog(@"%@",self.selectedCategoryName);
+            //NSLog(@"%@",self.selectedCategoryName);
+            NSLog(@"%ld")
             NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
-            NSLog(@"%ld",self.indexOfSelectedQuiz);
-            NSLog(@"%ld",checkLevelIndex);
+            //NSLog(@"%ld",self.indexOfSelectedQuiz);
+            //NSLog(@"%ld",checkLevelIndex);
             NSDictionary *dic =@{@"quiz":quiz,@"index":num};
             [stageQuizs addObject:dic];
             // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
         }
         checkLevelIndex++;
     }
-
+    NSLog(@"%ld",stageQuizs.count);
     NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
     NSLog(@"%@, %ld",[stageQuizs objectAtIndex:randomValue], randomValue);
     NSDictionary *selectedQuizDictionary = [stageQuizs objectAtIndex:randomValue];
@@ -117,7 +118,9 @@
 
     UIButton * btn = sender;
     BOOL isCollectAnswer=NO;
-
+    NSLog(@"btn tag : %ld",btn.tag);
+    NSLog(@"indexQUiz ; %ld",self.indexOfSelectedQuiz);
+    NSLog(@"categoryName : %@",self.selectedCategoryName);
     if([btn isKindOfClass:[UIButton class]]){
         DataCenter *dataCenter = [DataCenter sharedManager];
         isCollectAnswer = [dataCenter checkAnswer:btn.tag
