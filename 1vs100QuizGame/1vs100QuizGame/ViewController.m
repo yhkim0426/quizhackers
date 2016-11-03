@@ -63,31 +63,26 @@
     NSMutableArray *stageQuizs = [[NSMutableArray alloc]init];
     
     //해당카테고리의 스테이지카운트에 맞는 레벨의 문제를 가지고온다.
+    NSArray *quizArray = [quizs objectForKey:@"quizs"];
+    NSInteger  checkLevelIndex = 0;
     
-    
-    
-    
-        NSArray *quizArray = [quizs objectForKey:@"quizs"];
-        NSInteger  checkLevelIndex = 0;
-    
-        for (NSDictionary*quiz in quizArray) {
-            NSNumber *outPutLevel = [quiz objectForKey:@"level"];
-            NSInteger level = [outPutLevel integerValue];
-    
-            if(stageCount == level){
-                self.selectedCategoryName = [quizs objectForKey:@"category"];
-                NSLog(@"%@",self.selectedCategoryName);
-                NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
-                NSLog(@"%ld",self.indexOfSelectedQuiz);
-                NSLog(@"%ld",checkLevelIndex);
-                NSDictionary *dic =@{@"quiz":quiz,@"index":num};
-                [stageQuizs addObject:dic];
-                // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
-            }
-            checkLevelIndex++;
+    for (NSDictionary*quiz in quizArray) {
+        NSNumber *outPutLevel = [quiz objectForKey:@"level"];
+        NSInteger level = [outPutLevel integerValue];
+
+        if(stageCount == level){
+            self.selectedCategoryName = [quizs objectForKey:@"category"];
+            NSLog(@"%@",self.selectedCategoryName);
+            NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
+            NSLog(@"%ld",self.indexOfSelectedQuiz);
+            NSLog(@"%ld",checkLevelIndex);
+            NSDictionary *dic =@{@"quiz":quiz,@"index":num};
+            [stageQuizs addObject:dic];
+            // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
         }
-    
-    
+        checkLevelIndex++;
+    }
+
     NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
     NSLog(@"%@, %ld",[stageQuizs objectAtIndex:randomValue], randomValue);
     NSDictionary *selectedQuizDictionary = [stageQuizs objectAtIndex:randomValue];
@@ -130,6 +125,17 @@
                                      categoryName:self.selectedCategoryName];
     }
     NSLog(@"%d",isCollectAnswer);
+    
+    if (isCollectAnswer == 1) {
+        [self.progressViewHandlerForCode stop];
+        NSLog(@"Success");
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *vc =   [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+        self.navigationController.navigationBar.hidden = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        NSLog(@"Failed");
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,10 +145,13 @@
 
 // 타이머 완료시 델리게이트 처리
 - (void)progressViewHandler:(BIZProgressViewHandler *)progressViewHandler didFinishProgressForProgressView:(BIZCircularProgressView *)progressView {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Yellow progress is completed" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:alertAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+
+    if (self.progressViewHandlerForCode.current < 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Yellow progress is completed" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:alertAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 @end

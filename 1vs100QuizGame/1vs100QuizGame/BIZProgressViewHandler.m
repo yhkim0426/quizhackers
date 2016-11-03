@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) CGFloat min;
 @property (nonatomic) CGFloat max;
-@property (nonatomic) CGFloat current;
 @property (nonatomic, strong) BIZCircularProgressView *progressView;
 @property (nonatomic) CGFloat updateSpeed;
 @end

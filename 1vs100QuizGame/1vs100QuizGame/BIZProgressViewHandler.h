@@ -21,6 +21,7 @@
 - (instancetype)initWithProgressView:(BIZCircularProgressView *)progressView minValue:(CGFloat)min maxValue:(CGFloat)max;
 @property (nonatomic, weak) id <ProgressViewHandlerDelegate> delegate;
 @property (nonatomic) BOOL liveProgress;
+@property (nonatomic) CGFloat current;
 - (void)start;
 - (void)stop;
 
