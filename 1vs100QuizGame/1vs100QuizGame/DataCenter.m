@@ -98,14 +98,12 @@
     return self;
 }
 
-- (NSInteger)getStageCount {
-    return self.stageCount;
+- (void)plusOneStageCount {
+    self.stageCount++;
 }
 
-- (NSDictionary *)getProblemInfo {
-    // NSUserDefaults
-    
-    return nil;
+- (NSArray *)getQuizData {
+    return self.quizData;
 }
 
 // - ()
