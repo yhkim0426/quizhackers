@@ -32,7 +32,7 @@
     
     DataCenter *dataCenter = [DataCenter sharedManager];
     
-    NSArray *quizData = [dataCenter getQuizData];
+    NSArray *quizData = [dataCenter loadQuizDataFromPlist];
     
     NSInteger stageCount = [dataCenter getStageCount];
     
