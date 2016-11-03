@@ -12,14 +12,14 @@
 
 + (id)sharedManager;
 
-- (NSArray *)getQuizSolution;
+- (NSArray *)getQuizSolution:(NSString *)categoryName;
 - (NSArray *)loadQuizDataFromPlist;
 
 - (void)resetStageCount;
 - (NSInteger)getStageCount;
 - (void)plusOneStageCount;
 
-- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex;
+- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName;
 
 // - (NSArray *)getQuizData;
 
