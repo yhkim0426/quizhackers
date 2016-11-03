@@ -20,6 +20,7 @@
 - (void)plusOneStageCount;
 
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName;
+- (NSInteger)getNumberOfCategory;
 
 // - (NSArray *)getQuizData;
 

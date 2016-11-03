@@ -161,18 +161,15 @@
     BOOL isCorrectAnswer;
     NSInteger answer = 0;
     for (NSDictionary *solution in self.quizData) {
-    // NSLog(@"%ld",selectedQuizIndex);
-        
-   NSArray *quizs  = [solution objectForKey:@"quizs"];
-        
+        NSArray *quizs  = [solution objectForKey:@"quizs"];
         NSDictionary *quiz = [quizs objectAtIndex:selectedQuizIndex];
         NSNumber *answerNumber = [quiz objectForKey:@"answer"];
         answer = [answerNumber integerValue];
     }
     
-    if(tag==answer){
+    if (tag == answer) {
         isCorrectAnswer = YES;
-    }else{
+    } else {
     
         isCorrectAnswer = NO;
     }
