@@ -22,8 +22,10 @@
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName;
 - (NSInteger)getNumberOfCategory;
 
--(void)setSelectedCategory:(NSInteger)categoryIndex;
--(NSInteger)getSelectedCategoryIndex;
+- (void)setSelectedCategory:(NSInteger)categoryIndex;
+- (NSInteger)getSelectedCategoryIndex;
+
+- (NSInteger)getNumberOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName;
 
 // - (NSArray *)getQuizData;
 

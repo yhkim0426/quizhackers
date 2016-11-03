@@ -223,7 +223,7 @@
                                       @{
                                           @"problem":@"미국 내에서 가장 많이 팔린 음반의 가수는?",
                                           @"option":@[@"이글스", @"마이클 잭슨", @"엘비스 프레슬리"],
-                                          @"answer":@(2),
+                                          @"answer":@(0),
                                           @"detail":@"<미국 내 역대 최대 음반 판매량> 1위 - 이글스의 <greatest hits> 2900만장 2위 - 마이클 잭슨의 <thriller> 2600만장 엘비스 프레슬리는 순위 내 없음",
                                           @"level":@(0),
                                           @"imageURL":@""
@@ -234,6 +234,19 @@
         [self saveQuizDataToPlist:self.quizData];
     }
     return self;
+}
+
+- (NSInteger)getNumberOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName {
+    NSInteger numberOfQuiz = 0;
+    for (NSDictionary *categoryData in self.quizData) {
+        if ([categoryData[@"category"] isEqualToString:categoryName]) {
+            for (NSDictionary *solution in categoryData[@"quizs"]) {
+                if ([[solution objectForKey:@"level"] integerValue] == level)
+                    numberOfQuiz++;
+            }
+        }
+    }
+    return numberOfQuiz;
 }
 
 /// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
