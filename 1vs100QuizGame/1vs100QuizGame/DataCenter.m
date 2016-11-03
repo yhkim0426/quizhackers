@@ -287,22 +287,34 @@
 
 /// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
-    BOOL isCorrectAnswer;
+    BOOL isCorrectAnswer=NO;
     NSInteger answer = 0;
-    for (NSDictionary *solution in self.quizData) {
-        NSArray *quizs  = [solution objectForKey:@"quizs"];
-        NSDictionary *quiz = [quizs objectAtIndex:selectedQuizIndex];
-        NSNumber *answerNumber = [quiz objectForKey:@"answer"];
-        answer = [answerNumber integerValue];
-    }
+    for(NSInteger i=0;i<self.quizData.count;i++){
+        
+        
+        
+    NSDictionary *temp = [self.quizData objectAtIndex:i];
+        
+        NSString *string= [temp objectForKey:@"category"];
+        NSLog(@"%@",string);
+        if([categoryName isEqualToString:string]){
+        
+            NSArray *quizs  = [temp objectForKey:@"quizs"];
+            
+          NSDictionary *quiz = [quizs objectAtIndex:selectedQuizIndex];
+            
+            NSNumber *number = [quiz objectForKey:@"answer"];
+            answer = [number integerValue];
+            
+            if(answer==tag){
+            
+                isCorrectAnswer = YES;
+            
+            }
+        }
     
-    if (tag == answer) {
-        isCorrectAnswer = YES;
-    } else {
-    
-        isCorrectAnswer = NO;
     }
-    return isCorrectAnswer;
+       return isCorrectAnswer;
 }
 
 - (NSArray *)getAllCategoryNames {
