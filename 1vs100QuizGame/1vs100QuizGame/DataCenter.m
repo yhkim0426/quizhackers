@@ -156,22 +156,28 @@
 }
 
 /// 유저가 선택한 번호와 문제의 정답이 일치하면 YES, 일치하지 않으면 NO 를 출력함
+
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName {
-    NSInteger answer = -1;
+    BOOL isCorrectAnswer;
+    NSInteger answer = 0;
     for (NSDictionary *solution in self.quizData) {
-        if ([solution[@"category"] isEqualToString:categoryName]) {
-            answer = [solution[@"quizs"][selectedQuizIndex][@"answer"] integerValue];
-        }
+    // NSLog(@"%ld",selectedQuizIndex);
+        
+   NSArray *quizs  = [solution objectForKey:@"quizs"];
+        
+        NSDictionary *quiz = [quizs objectAtIndex:selectedQuizIndex];
+        NSNumber *answerNumber = [quiz objectForKey:@"answer"];
+        answer = [answerNumber integerValue];
     }
     
-    // NSInteger answer = [self.quizData[selectedQuizIndex][@"answer"] intValue];
-    if (tag == answer) {
-        return YES;
-    } else {
-        return NO;
+    if(tag==answer){
+        isCorrectAnswer = YES;
+    }else{
+    
+        isCorrectAnswer = NO;
     }
+    return isCorrectAnswer;
 }
-
 
 - (NSInteger)getNumberOfCategory {
     

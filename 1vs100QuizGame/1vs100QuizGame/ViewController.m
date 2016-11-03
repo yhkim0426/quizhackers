@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  1vs100QuizGame
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *option3Button;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *currentLevelSegment;
 @property NSInteger indexOfSelectedQuiz;
+@property NSString *selectedCategoryName;
+
 @end
 
 @implementation ViewController
@@ -46,30 +49,56 @@
     
     NSMutableArray *stageQuizs = [[NSMutableArray alloc]init];
     
-    NSInteger quizDataIndex;
-    for (NSDictionary *quiz in quizData) {
+    //해당카테고리의 스테이지카운트에 맞는 레벨의 문제를 가지고온다.
+   
+    for (NSDictionary *quizs in quizData) {
         
-       
-       NSNumber *outPutLevel = [quiz objectForKey:@"level"];
-        NSInteger level = [outPutLevel integerValue];
+        NSArray *quizArray = [quizs objectForKey:@"quizs"];
         
-        if(stageCount==level){
-            self.indexOfSelectedQuiz=quizDataIndex;
+         NSInteger  checkLevelIndex = 0;
+        for (NSDictionary*quiz in quizArray) {
             
-            [stageQuizs addObject:quiz];
-          // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
+            NSNumber *outPutLevel = [quiz objectForKey:@"level"];
+            NSInteger level = [outPutLevel integerValue];
+            
+            if(stageCount==level){
+                self.selectedCategoryName =[quizs objectForKey:@"category"];
+                NSLog(@"%@",self.selectedCategoryName);
+                NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
+                NSLog(@"%ld",self.indexOfSelectedQuiz);
+                NSLog(@"%ld",checkLevelIndex);
+                                NSDictionary *dic =@{@"quiz":quiz,@"index":num};
+                [stageQuizs addObject:dic];
+                // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
+            }
+            
+            checkLevelIndex++;
         }
         
-        quizDataIndex++;
-    }
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+      
+    
     
     NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
     NSLog(@"%@, %ld",[stageQuizs objectAtIndex:randomValue], randomValue);
     
-    NSDictionary *selectedQuiz = [stageQuizs objectAtIndex:randomValue];
+   NSDictionary *selectedQuizDictionary = [stageQuizs objectAtIndex:randomValue];
     
+    NSDictionary *selectedQuiz =[selectedQuizDictionary objectForKey:@"quiz"];
   NSString *imageURL = [selectedQuiz objectForKey:@"imageURL"];
+    NSNumber *indexNumber = [selectedQuizDictionary objectForKey:@"index"];
+    self.indexOfSelectedQuiz = [indexNumber integerValue];
     
+    NSLog(@"%ld",self.indexOfSelectedQuiz);
     if([imageURL isEqualToString:@""]){
     
         self.imageQuizLabel.hidden = YES;
@@ -102,18 +131,23 @@
 -(IBAction)touchInSideOptions:(id)sender{
 
     UIButton * btn = sender;
-    
+    BOOL isCollectAnswer=NO;
+
     if([btn isKindOfClass:[UIButton class]]){
     
-        //DataCenter *dataCenter = [DataCenter share]
+        DataCenter *dataCenter = [DataCenter sharedManager];
         
-        //btn.tit
         
-    
+        isCollectAnswer = [dataCenter checkAnswer:btn.tag at:self.indexOfSelectedQuiz categoryName:self.selectedCategoryName];
+        
+       
+        
+        
         
     }
     
-
+    NSLog(@"%d",isCollectAnswer);
+    
     
 }
 
