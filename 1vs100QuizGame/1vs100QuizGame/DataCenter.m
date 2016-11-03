@@ -236,8 +236,31 @@
     return self;
 }
 
-- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName {
+/*- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *categoryData in self.quizData) {
+        if ([categoryData[@"category"] isEqualToString:categoryName]) {
+            for (NSDictionary *solution in categoryData[@"quizs"]) {
+                if ([[solution objectForKey:@"level"] integerValue] == level)
+                    [tempArray addObject:solution];
+            }
+        }
+    }
+    return tempArray;
+} */
+
+- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSInteger)categoryNumber {
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    NSString *categoryName;
+    switch (categoryNumber) {
+        case 0:
+            categoryName = @"common";
+            break;
+        case 1:
+            categoryName = @"history";
+            break;
+    }
+    
     for (NSDictionary *categoryData in self.quizData) {
         if ([categoryData[@"category"] isEqualToString:categoryName]) {
             for (NSDictionary *solution in categoryData[@"quizs"]) {

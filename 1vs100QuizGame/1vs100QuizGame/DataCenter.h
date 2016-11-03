@@ -27,7 +27,7 @@
 
 - (NSInteger)getNumberOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName;
 
-- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName;
+- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSInteger)categoryNumber;
 // - (NSArray *)getQuizData;
 
 
