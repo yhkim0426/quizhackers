@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		141026811DCB67B7000DE924 /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 141026801DCB67B7000DE924 /* DataCenter.m */; };
 		141026841DCB799B000DE924 /* quizData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 141026831DCB799B000DE924 /* quizData.plist */; };
+		7B079CBC1DCBC34600D81140 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B079CBB1DCBC34600D81140 /* CustomNavigationBar.m */; };
+		7B079CBF1DCBC3B400D81140 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B079CBE1DCBC3B400D81140 /* TableViewController.m */; };
 		7BA79EED1DCB622A00CEAE18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EEC1DCB622A00CEAE18 /* main.m */; };
 		7BA79EF01DCB622A00CEAE18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EEF1DCB622A00CEAE18 /* AppDelegate.m */; };
 		7BA79EF31DCB622A00CEAE18 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA79EF21DCB622A00CEAE18 /* ViewController.m */; };
@@ -24,6 +26,10 @@
 		141026801DCB67B7000DE924 /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
 		141026821DCB67C9000DE924 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		141026831DCB799B000DE924 /* quizData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quizData.plist; sourceTree = "<group>"; };
+		7B079CBA1DCBC34600D81140 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
+		7B079CBB1DCBC34600D81140 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
+		7B079CBD1DCBC3B400D81140 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		7B079CBE1DCBC3B400D81140 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		7BA79EE81DCB622A00CEAE18 /* 1vs100QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1vs100QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA79EEC1DCB622A00CEAE18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7BA79EEE1DCB622A00CEAE18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +86,10 @@
 				141026831DCB799B000DE924 /* quizData.plist */,
 				141026821DCB67C9000DE924 /* PrefixHeader.pch */,
 				AA4A2CC11DCBBDA0006CACEE /* BIZCircularProgress */,
+				7B079CBA1DCBC34600D81140 /* CustomNavigationBar.h */,
+				7B079CBB1DCBC34600D81140 /* CustomNavigationBar.m */,
+				7B079CBD1DCBC3B400D81140 /* TableViewController.h */,
+				7B079CBE1DCBC3B400D81140 /* TableViewController.m */,
 				7BA79EF71DCB622B00CEAE18 /* Assets.xcassets */,
 				7BA79EF91DCB622B00CEAE18 /* LaunchScreen.storyboard */,
 				7BA79EFC1DCB622B00CEAE18 /* Info.plist */,
@@ -185,6 +195,8 @@
 				141026811DCB67B7000DE924 /* DataCenter.m in Sources */,
 				7BA79EED1DCB622A00CEAE18 /* main.m in Sources */,
 				AA4A2CBF1DCBBD99006CACEE /* BIZCircularProgressView.m in Sources */,
+				7B079CBC1DCBC34600D81140 /* CustomNavigationBar.m in Sources */,
+				7B079CBF1DCBC3B400D81140 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
