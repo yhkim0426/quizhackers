@@ -94,15 +94,27 @@
                                   @"level":@(1),
                                   @"imageURL":@""
                                   }];
+        
     }
     return self;
 }
 
-- (NSInteger)getStageCount{
-
-    return  self.stageCount;
-    
+- (NSArray *)getQuizSolution {
+    NSMutableArray *quizSoluations = [[NSMutableArray alloc] init];
+    for (NSDictionary *solution in self.quizData) {
+        [quizSoluations addObject:[solution objectForKey:@"answer"]];
+    }
+    return quizSoluations;
 }
+
+- (void)resetStageCount {
+    self.stageCount = 0;
+}
+
+- (NSInteger)getStageCount {
+    return self.stageCount;
+}
+
 - (void)plusOneStageCount {
     self.stageCount++;
 }
