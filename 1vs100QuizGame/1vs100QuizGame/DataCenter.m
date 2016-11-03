@@ -11,6 +11,7 @@
 @interface DataCenter ()
 
 @property NSArray *quizData;
+@property NSInteger stageCount;
 
 @end
 
@@ -28,6 +29,7 @@
 
 - (id)init {
     if ([super init]) {
+        self.stageCount = 0;
         self.quizData = @[
                               @{
                                   @"problem":@"스파게티 까르보나라에서 까르보나라의 어원은?",
@@ -94,6 +96,10 @@
                                   }];
     }
     return self;
+}
+
+- (NSInteger)getStageCount {
+    return self.stageCount;
 }
 
 - (NSDictionary *)getProblemInfo {
