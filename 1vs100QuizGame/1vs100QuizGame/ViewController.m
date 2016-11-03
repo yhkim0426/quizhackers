@@ -45,7 +45,7 @@
     self.circularProgressViewForCode.progressLineWidth = 5;
     self.circularProgressViewForCode.textLabel.textColor = [UIColor blackColor];
     self.circularProgressViewForCode.textLabel.font = [UIFont boldSystemFontOfSize:25];
-    self.progressViewHandlerForCode = [[BIZProgressViewHandler alloc] initWithProgressView:self.circularProgressViewForCode minValue:0 maxValue:5];
+    self.progressViewHandlerForCode = [[BIZProgressViewHandler alloc] initWithProgressView:self.circularProgressViewForCode minValue:0 maxValue:50];
     [self.progressViewHandlerForCode start];
     self.progressViewHandlerForCode.liveProgress = YES;
     self.progressViewHandlerForCode.delegate = self;
@@ -55,7 +55,7 @@
     NSArray *quizData = [dataCenter loadQuizDataFromPlist];
     NSInteger stageCount = [dataCenter getStageCount];
     NSLog(@"%ld",[dataCenter getNumberOfCategory]);
-
+    
     NSDictionary *quizs = [quizData objectAtIndex:[dataCenter getSelectedCategoryIndex]];
        //segment Level Setting
     self.currentLevelSegment.selectedSegmentIndex = stageCount;
@@ -72,11 +72,15 @@
         NSLog(@"%ld",level);
         if(stageCount == level){
             self.selectedCategoryName = [quizs objectForKey:@"category"];
+
             //NSLog(@"%@",self.selectedCategoryName);
-            NSLog(@"%ld")
-            NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
+           // NSLog(@"%ld")
+           
             //NSLog(@"%ld",self.indexOfSelectedQuiz);
             //NSLog(@"%ld",checkLevelIndex);
+
+            NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
+
             NSDictionary *dic =@{@"quiz":quiz,@"index":num};
             [stageQuizs addObject:dic];
             // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
@@ -92,7 +96,7 @@
     NSNumber *indexNumber = [selectedQuizDictionary objectForKey:@"index"];
     self.indexOfSelectedQuiz = [indexNumber integerValue];
     
-    NSLog(@"%ld",self.indexOfSelectedQuiz);
+    NSLog(@"indexedSelectedItem %ld",self.indexOfSelectedQuiz);
     
     if ([imageURL isEqualToString:@""]) {
         self.imageQuizLabel.hidden = YES;
@@ -115,14 +119,15 @@
 
 // 문제 답을 탭 했을 시 정답 오답 처리 후 전달
 - (IBAction)touchInSideOptions:(id)sender {
-
+    DataCenter *dataCenter = [DataCenter sharedManager];
     UIButton * btn = sender;
     BOOL isCollectAnswer=NO;
     NSLog(@"btn tag : %ld",btn.tag);
     NSLog(@"indexQUiz ; %ld",self.indexOfSelectedQuiz);
     NSLog(@"categoryName : %@",self.selectedCategoryName);
     if([btn isKindOfClass:[UIButton class]]){
-        DataCenter *dataCenter = [DataCenter sharedManager];
+        
+        NSLog(@"indexOfselectedquiz %ld", self.indexOfSelectedQuiz);
         isCollectAnswer = [dataCenter checkAnswer:btn.tag
                                              at:self.indexOfSelectedQuiz
                                      categoryName:self.selectedCategoryName];
@@ -131,14 +136,15 @@
     
     if (isCollectAnswer == 1) {
         [self.progressViewHandlerForCode stop];
-        NSLog(@"Success");
+        [dataCenter plusOneStageCount];
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController *vc =   [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
-        self.navigationController.navigationBar.hidden = YES;
         [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        NSLog(@"Failed");
+        } else {
+       
     }
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {
