@@ -41,7 +41,7 @@
     
     if([btn isKindOfClass:[UIButton class]]){
     
-        
+        DataCenter *dataCenter = [DataCenter share]
         
         
         
