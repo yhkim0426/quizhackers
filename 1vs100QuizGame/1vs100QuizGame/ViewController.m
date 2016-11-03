@@ -85,7 +85,7 @@
     self.option2Button.titleLabel.text =[optionArray objectAtIndex:1];
     self.option3Button.titleLabel.text =[optionArray objectAtIndex:2];
     
-    
+    self.option1Button.titleLabel.text =@"1";
 }
 
 
