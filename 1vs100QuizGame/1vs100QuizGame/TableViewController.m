@@ -8,9 +8,11 @@
 
 #import "TableViewController.h"
 #import "CustomNavigationBar.h"
+#import "ViewController.h"
 @interface TableViewController ()<UICustomNavigationBarDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
-
+@property NSInteger cellRowNumber;
+@property NSString *selectedCategoryName;
 @end
 
 @implementation TableViewController
@@ -21,15 +23,36 @@
     self.mainTableView.dataSource=self;
     // Do any additional setup after loading the view.
     
-    
+    self.navigationController.navigationBar.hidden= YES;
     CustomNavigationBar *navigationBar = [[CustomNavigationBar alloc]initWithStyle:UICustomNavigationBarNomalStyle barColor:UICustomNavigationBarRedColor mainLogo:@"1대100" delegate:self];
     
     [self.view addSubview:navigationBar];
     
+    DataCenter *dataCenter = [DataCenter sharedManager];
+    
+    self.cellRowNumber = [dataCenter getNumberOfCategory];
+    
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DataCenter *dataCenter = [DataCenter sharedManager];
+            
+    NSInteger selectedRow = indexPath.row;
+    NSLog(@"%ld",selectedRow);
+    [dataCenter setSelectedCategory:selectedRow];
+    
+         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+    
 
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
     
     
     return 1;
@@ -39,12 +62,10 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    DataCenter *dataCenter = [DataCenter sharedManager];
     
-    NSInteger categoryNumber= [dataCenter getNumberOfCategory];
     
-    NSLog(@"%ld",categoryNumber);
-    return categoryNumber;
+    NSLog(@"%ld",self.cellRowNumber);
+    return self.cellRowNumber;
     
 
 }
@@ -53,6 +74,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    NSLog(@"%ld",indexPath.row);
     DataCenter *dataCenter = [DataCenter sharedManager];
     
  NSArray *categoryName = [dataCenter getAllCategoryNames];

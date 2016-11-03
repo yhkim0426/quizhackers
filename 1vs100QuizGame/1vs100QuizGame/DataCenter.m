@@ -12,7 +12,7 @@
 
 @property NSArray *quizData;
 @property NSInteger stageCount;
-
+@property NSInteger currentSelectedCategoryIndex;
 @end
 
 @implementation DataCenter
@@ -320,6 +320,18 @@
     self.stageCount++;
 }
 
+
+-(void)setSelectedCategory:(NSInteger)categoryIndex{
+
+
+    self.currentSelectedCategoryIndex = categoryIndex;
+    
+}
+-(NSInteger)getSelectedCategoryIndex{
+
+    return self.currentSelectedCategoryIndex;
+    
+}
 /*
 - (NSArray *)getQuizData {
     return self.quizData;

@@ -54,14 +54,19 @@
     DataCenter *dataCenter = [DataCenter sharedManager];
     NSArray *quizData = [dataCenter loadQuizDataFromPlist];
     NSInteger stageCount = [dataCenter getStageCount];
-    
-    //segment Level Setting
+    NSLog(@"%ld",[dataCenter getNumberOfCategory]);
+
+    NSDictionary *quizs = [quizData objectAtIndex:[dataCenter getSelectedCategoryIndex]];
+       //segment Level Setting
     self.currentLevelSegment.selectedSegmentIndex = stageCount;
     NSLog(@"stage ? %ld",stageCount);
     NSMutableArray *stageQuizs = [[NSMutableArray alloc]init];
     
     //해당카테고리의 스테이지카운트에 맞는 레벨의 문제를 가지고온다.
-    for (NSDictionary *quizs in quizData) {
+    
+    
+    
+    
         NSArray *quizArray = [quizs objectForKey:@"quizs"];
         NSInteger  checkLevelIndex = 0;
     
@@ -81,7 +86,7 @@
             }
             checkLevelIndex++;
         }
-    }
+    
     
     NSUInteger randomValue = arc4random_uniform((int)stageQuizs.count);
     NSLog(@"%@, %ld",[stageQuizs objectAtIndex:randomValue], randomValue);
