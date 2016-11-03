@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mainTableView.delegate=self;
+    self.mainTableView.dataSource=self;
     // Do any additional setup after loading the view.
     
     
@@ -28,21 +30,20 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-
-
-
+    
+    
     return 1;
-
-
+    
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
-        
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
     DataCenter *dataCenter = [DataCenter sharedManager];
     
     NSInteger categoryNumber= [dataCenter getNumberOfCategory];
     
+    NSLog(@"%ld",categoryNumber);
     return categoryNumber;
     
 
@@ -54,10 +55,11 @@
     
     DataCenter *dataCenter = [DataCenter sharedManager];
     
-        cell.textLabel.text = 
+ NSArray *categoryName = [dataCenter getAllCategoryNames];
+    cell.textLabel.text = [categoryName objectAtIndex:indexPath.row];
+    NSLog(@"%@",cell.textLabel.text);
 
-
-
+    return  cell;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,7 +18,7 @@
 - (void)resetStageCount;
 - (NSInteger)getStageCount;
 - (void)plusOneStageCount;
-
+- (NSArray *)getAllCategoryNames;
 - (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName;
 - (NSInteger)getNumberOfCategory;
 
