@@ -55,7 +55,7 @@
     NSArray *quizData = [dataCenter loadQuizDataFromPlist];
     NSInteger stageCount = [dataCenter getStageCount];
     NSLog(@"%ld",[dataCenter getNumberOfCategory]);
-
+    
     NSDictionary *quizs = [quizData objectAtIndex:[dataCenter getSelectedCategoryIndex]];
        //segment Level Setting
     self.currentLevelSegment.selectedSegmentIndex = stageCount;
@@ -72,10 +72,7 @@
 
         if(stageCount == level){
             self.selectedCategoryName = [quizs objectForKey:@"category"];
-            NSLog(@"%@",self.selectedCategoryName);
             NSNumber *num = [NSNumber numberWithInteger:checkLevelIndex];
-            NSLog(@"%ld",self.indexOfSelectedQuiz);
-            NSLog(@"%ld",checkLevelIndex);
             NSDictionary *dic =@{@"quiz":quiz,@"index":num};
             [stageQuizs addObject:dic];
             // NSLog(@"%@",[stageQuizs objectAtIndex:0]);
@@ -91,7 +88,7 @@
     NSNumber *indexNumber = [selectedQuizDictionary objectForKey:@"index"];
     self.indexOfSelectedQuiz = [indexNumber integerValue];
     
-    NSLog(@"%ld",self.indexOfSelectedQuiz);
+    NSLog(@"indexedSelectedItem %ld",self.indexOfSelectedQuiz);
     
     if ([imageURL isEqualToString:@""]) {
         self.imageQuizLabel.hidden = YES;
@@ -120,6 +117,7 @@
 
     if([btn isKindOfClass:[UIButton class]]){
         DataCenter *dataCenter = [DataCenter sharedManager];
+        NSLog(@"indexOfselectedquiz %ld", self.indexOfSelectedQuiz);
         isCollectAnswer = [dataCenter checkAnswer:btn.tag
                                              at:self.indexOfSelectedQuiz
                                      categoryName:self.selectedCategoryName];
