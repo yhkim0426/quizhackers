@@ -86,10 +86,6 @@
     self.option3Button.titleLabel.text =[optionArray objectAtIndex:2];
     
     
-    
-    
-    
-    
 }
 
 

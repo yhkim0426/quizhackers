@@ -94,23 +94,63 @@
                                   @"level":@(1),
                                   @"imageURL":@""
                                   }];
+        
+        // quizData.plist 파일로 저장 
+        [self saveQuizDataToPlist:self.quizData];
+        NSLog(@"inited");
     }
     return self;
 }
 
-- (NSInteger)getStageCount{
-
-    return  self.stageCount;
+- (void)saveQuizDataToPlist:(NSArray *)quizData {
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [documentPath stringByAppendingString:@"quizData.plist"];
     
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:filePath]) {
+        NSString  *bundlePath = [[NSBundle mainBundle] pathForResource:@"quizData" ofType:@"plist"];
+        [fileManager copyItemAtPath:bundlePath toPath:filePath error:nil];
+    }
+    
+    // 수정되어야 하기 때문에 mutable 로 만듦
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+    [dic setObject:quizData forKey:@"quizData"];
+    [dic writeToFile:filePath atomically:NO];
 }
+
+- (NSArray *)loadQuizDataFromPlist {
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [documentPath stringByAppendingString:@"quizData.plist"];
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    NSArray *nameList = [dic objectForKey:@"quizData"];
+    return nameList;
+}
+
+- (NSArray *)getQuizSolution {
+    NSMutableArray *quizSoluations = [[NSMutableArray alloc] init];
+    for (NSDictionary *solution in self.quizData) {
+        [quizSoluations addObject:[solution objectForKey:@"answer"]];
+    }
+    return quizSoluations;
+}
+
+- (void)resetStageCount {
+    self.stageCount = 0;
+}
+
+- (NSInteger)getStageCount {
+    return self.stageCount;
+}
+
 - (void)plusOneStageCount {
     self.stageCount++;
 }
 
+/*
 - (NSArray *)getQuizData {
     return self.quizData;
-}
+} */
 
-// - ()
 
 @end
