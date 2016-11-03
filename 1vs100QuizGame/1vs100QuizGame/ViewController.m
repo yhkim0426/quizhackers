@@ -96,8 +96,30 @@
     
     
     
+    
+    
 }
 
+-(IBAction)touchInSideOptions:(id)sender{
+
+    UIButton * btn = sender;
+    
+    if([btn isKindOfClass:[UIButton class]]){
+    
+        switch (btn.tag) {
+            case <#constant#>:
+                <#statements#>
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
