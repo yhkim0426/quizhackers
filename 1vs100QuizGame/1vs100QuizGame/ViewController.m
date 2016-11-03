@@ -24,6 +24,9 @@
     self.baseTimerBar.layer.cornerRadius = 10.0f;
     self.acitvityTimerBar.layer.cornerRadius = 5.0f;
     
+    DataCenter *dataCenter = [DataCenter sharedManager];
+    
+    dataCenter.
     
     
     
