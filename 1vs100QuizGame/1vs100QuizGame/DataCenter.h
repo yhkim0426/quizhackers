@@ -12,13 +12,22 @@
 
 + (id)sharedManager;
 
-- (NSArray *)getQuizSolution;
+- (NSArray *)getQuizSolution:(NSString *)categoryName;
 - (NSArray *)loadQuizDataFromPlist;
 
 - (void)resetStageCount;
 - (NSInteger)getStageCount;
 - (void)plusOneStageCount;
+- (NSArray *)getAllCategoryNames;
+- (BOOL)checkAnswer:(NSInteger)tag at:(NSInteger)selectedQuizIndex categoryName:(NSString *)categoryName;
+- (NSInteger)getNumberOfCategory;
 
+- (void)setSelectedCategory:(NSInteger)categoryIndex;
+- (NSInteger)getSelectedCategoryIndex;
+
+- (NSInteger)getNumberOfQuizAt:(NSInteger)level withCategory:(NSString *)categoryName;
+
+- (NSArray *)getArrayOfQuizAt:(NSInteger)level withCategory:(NSInteger)categoryNumber;
 // - (NSArray *)getQuizData;
 
 
